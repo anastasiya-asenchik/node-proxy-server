@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.get('/asteroids', (req, res) => {
     getAsteroidsData()
-        .then(data => res.send(data))
+        .then(data => res.json(data))
         .catch(error => {
             console.error('Error fetching data:', error);
             res.status(500).send('Error fetching data');
