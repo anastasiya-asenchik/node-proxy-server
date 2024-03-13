@@ -14,7 +14,7 @@ const getAsteroidsData = (startDate, endDate) => axios.get(NASA_BASE_API_URL, {
 })
     .then(response => {
         const asteroidData = response.data;
-        return asteroidsMapper(asteroidData);
+        return asteroidsMapper(response.data);
     })
     .catch(error => {
         console.error('Error fetching data:', error);
