@@ -1,10 +1,14 @@
 import getAsteroidsData from "../services/asteroidsService.js"
-import getFormattedDate from "../utils/dateTimeUtils.js";
 
 export const getAsteroids = async (req, res, next) => {
     try {
-        const {startDate, endDate} = getFormattedDate();
-        const data = await getAsteroidsData(startDate, endDate);
+        const requestParams = {
+            date: req.query.date,
+            count: req.query.count,
+            hasDangerousMeteors: req.query.were_dangerous_meteors
+        }
+
+        const data = await getAsteroidsData(requestParams);
         res.json(data);
     } catch (error) {
         next(error);
