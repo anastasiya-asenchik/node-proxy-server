@@ -1,12 +1,8 @@
 import {Router} from 'express';
 import {getAsteroids} from "../controllers/asteroidsController.js";
 
-const router = Router();
+const asteroidRouter = Router();
 
-router.get('/', (req, res) => {
-    res.send('Hello World');
-});
+asteroidRouter.get('/', getAsteroids);
 
-router.get('/asteroids', getAsteroids);
-
-export default router;
+export default asteroidRouter;

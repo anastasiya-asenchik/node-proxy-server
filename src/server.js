@@ -1,5 +1,6 @@
 import express from "express"
-import router from "./routers/asteroids.js";
+import asteroidRouter from "./routers/asteroids.js";
+import userRouter from "./routers/user.js";
 import {defaultErrorHandler} from "./exceptions/defaultErrorHandler.js";
 
 const PORT = process.env.PORT;
@@ -7,7 +8,8 @@ const PORT = process.env.PORT;
 const app = express();
 app.use(express.json());
 
-app.use('/', router);
+app.use('/asteroids', asteroidRouter);
+app.use('/user', userRouter)
 
 app.use(defaultErrorHandler);
 
