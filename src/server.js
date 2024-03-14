@@ -7,7 +7,6 @@ const PORT = process.env.PORT;
 
 const app = express();
 app.use(express.json());
-
 app.use('/asteroids', asteroidRouter);
 app.use('/user', userRouter)
 
